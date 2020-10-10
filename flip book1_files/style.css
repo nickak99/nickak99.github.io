@@ -1,0 +1,946 @@
+@charset "utf-8";
+/*框架预览 CSS*/
+.mkeBody{ background:#121212;}
+.mkeHeadBox{ padding: 30px 10px; text-overflow: ellipsis; white-space: nowrap; margin: 0; color: #fff; text-align: center; overflow: hidden; border-bottom: 3px solid #666; box-shadow: inset 0 -2px 3px #000000; letter-spacing: 1px; font: 26px/26px "微软雅黑"; }
+.mkeFooterBox{ padding: 25px 10px; text-overflow: ellipsis; margin: 0; color: #fff; font-size: 14px; line-height: 24px; text-align: center; overflow: hidden; border-top: 3px solid #666; box-shadow: inset 0 2px 3px #000000; }
+.mkeContentBox{ background:#212121; padding:50px 0 50px 0}
+.mkeContentBox:after{height:0; clear:both;}
+.mkeFooterBox p,.mkeFooterBox div{padding:0; margin:0; line-height:26px; font-size:14px;}
+.mkeFooterBox a{color:#fff; white-space:nowrap}
+.mkeButton{background:#F36; display:inline-block; text-decoration:none; width:102px; border-radius:0.3em; transition:all 0.3s ease}
+.mkeButton:hover{ background: #FF1550; }
+.mkeURL{font-size:24px;}
+.mkeFooterBox .mKeBannerAD{ width: 728px; height: 90px; margin: 18px auto 0; }
+.mkeFooterBox .mSmallKeBannerAD{display:none;}
+@media only screen and (max-width:900px){
+.mkeButton {display:block; margin:8px auto 0;}
+}
+@media only screen and (max-width:767px){
+.mkeHeadBox{font-size:18px; padding:15px 10px;}
+.mkeFooterBox p,.mkeFooterBox div{ line-height:24px; font-size:12px;}
+.mkeURL{font-size:22px;}
+.mkeFooterBox .mKeBannerAD{display:none;}
+.mkeFooterBox .mSmallKeBannerAD{width:300px; height:250px; margin:18px auto 0; display:block;}
+}
+/*End*/
+
+/*主要CSS*/
+/*
+	flip-book样式
+ */
+* {
+	padding: 0;
+	margin: 0;
+}
+body, html {
+	height: 50%;
+}
+body {
+
+	/*perspective 属性指定了观察者与z=0平面的距离，使具有三维位置变换的元素产生透视效果。z>0的三维元素比正常大，而z<0时则比正常小，大小程度由该属性的值决定。默认情况下，消失点位于元素的中心，但是可以通过设置perspective-origin属性来改变其位置。*/
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+	background-color: #212121;
+	font-family: '微軟正黑體';
+}
+.book {
+	position: absolute;
+	top: 50%;
+	left: 40%;
+	margin-top: -160px;
+	width: 800px;
+	height: 600px;
+	background-color: #fff;
+	-webkit-transform: rotateX(20deg);
+	-ms-transform: rotateX(20deg);
+	-o-transform: rotateX(20deg);
+	transform: rotateX(20deg);
+}
+.preserve-3d {
+
+	/*transform-style属性指定了，该元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化。*/
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+.book-page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 800px;
+	height: 600px;
+	border: 1px solid #1976D2;
+	text-align: center;
+}
+img {  
+    max-height: 90%;  
+    max-width: 90%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+.book-page-box {
+	-webkit-transform-origin: 0 50%;
+	-moz-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	-o-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+@keyframes flipBook1 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+		-o-transform: rotateY(-180deg);
+		transform: rotateY(-180deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook1 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+		-o-transform: rotateY(-180deg);
+		transform: rotateY(-180deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook1 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+		-o-transform: rotateY(-180deg);
+		transform: rotateY(-180deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook1 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+		-o-transform: rotateY(-180deg);
+		transform: rotateY(-180deg);
+	}
+}
+@keyframes flipBook2 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-178deg);
+		-ms-transform: rotateY(-178deg);
+		-o-transform: rotateY(-178deg);
+		transform: rotateY(-178deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook2 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-178deg);
+		-ms-transform: rotateY(-178deg);
+		-o-transform: rotateY(-178deg);
+		transform: rotateY(-178deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook2 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-178deg);
+		-ms-transform: rotateY(-178deg);
+		-o-transform: rotateY(-178deg);
+		transform: rotateY(-178deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook2 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-178deg);
+		-ms-transform: rotateY(-178deg);
+		-o-transform: rotateY(-178deg);
+		transform: rotateY(-178deg);
+	}
+}
+@keyframes flipBook3 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-176deg);
+		-ms-transform: rotateY(-176deg);
+		-o-transform: rotateY(-176deg);
+		transform: rotateY(-176deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook3 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-176deg);
+		-ms-transform: rotateY(-176deg);
+		-o-transform: rotateY(-176deg);
+		transform: rotateY(-176deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook3 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-176deg);
+		-ms-transform: rotateY(-176deg);
+		-o-transform: rotateY(-176deg);
+		transform: rotateY(-176deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook3 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-176deg);
+		-ms-transform: rotateY(-176deg);
+		-o-transform: rotateY(-176deg);
+		transform: rotateY(-176deg);
+	}
+}
+/*******************************flipBook4**********************************************************/
+@keyframes flipBook4 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-174deg);
+		-ms-transform: rotateY(-174deg);
+		-o-transform: rotateY(-174deg);
+		transform: rotateY(-174deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook4 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-174deg);
+		-ms-transform: rotateY(-174deg);
+		-o-transform: rotateY(-174deg);
+		transform: rotateY(-174deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook4 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-174deg);
+		-ms-transform: rotateY(-174deg);
+		-o-transform: rotateY(-174deg);
+		transform: rotateY(-174deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook4 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-174deg);
+		-ms-transform: rotateY(-174deg);
+		-o-transform: rotateY(-174deg);
+		transform: rotateY(-174deg);
+	}
+}
+
+/*******************************flipBook4**********************************************************/
+
+/*******************************flipBook5**********************************************************/
+@keyframes flipBook5 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-172deg);
+		-ms-transform: rotateY(-172deg);
+		-o-transform: rotateY(-172deg);
+		transform: rotateY(-172deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook5 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-172deg);
+		-ms-transform: rotateY(-172deg);
+		-o-transform: rotateY(-172deg);
+		transform: rotateY(-172deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook5 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-172deg);
+		-ms-transform: rotateY(-172deg);
+		-o-transform: rotateY(-172deg);
+		transform: rotateY(-172deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook5 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-172deg);
+		-ms-transform: rotateY(-172deg);
+		-o-transform: rotateY(-172deg);
+		transform: rotateY(-172deg);
+	}
+}
+
+/*******************************flipBook5**********************************************************/
+/*******************************flipBook6**********************************************************/
+@keyframes flipBook6 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-170deg);
+		-ms-transform: rotateY(-170deg);
+		-o-transform: rotateY(-170deg);
+		transform: rotateY(-170deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook6 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-170deg);
+		-ms-transform: rotateY(-170deg);
+		-o-transform: rotateY(-170deg);
+		transform: rotateY(-170deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook6 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-170deg);
+		-ms-transform: rotateY(-170deg);
+		-o-transform: rotateY(-170deg);
+		transform: rotateY(-170deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook6 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-170deg);
+		-ms-transform: rotateY(-170deg);
+		-o-transform: rotateY(-170deg);
+		transform: rotateY(-170deg);
+	}
+}
+
+/*******************************flipBook6**********************************************************/
+
+/*******************************flipBook7**********************************************************/
+@keyframes flipBook7 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-168deg);
+		-ms-transform: rotateY(-168deg);
+		-o-transform: rotateY(-168deg);
+		transform: rotateY(-168deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook7 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-168deg);
+		-ms-transform: rotateY(-168deg);
+		-o-transform: rotateY-168deg);
+		transform: rotateY(-168deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook7 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-168deg);
+		-ms-transform: rotateY(-168deg);
+		-o-transform: rotateY(-168deg);
+		transform: rotateY(0-168eg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook7 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-168deg);
+		-ms-transform: rotateY(-168deg);
+		-o-transform: rotateY(-168deg);
+		transform: rotateY(-168deg);
+	}
+}
+
+/*******************************flipBook7**********************************************************/
+
+/*******************************flipBook8**********************************************************/
+@keyframes flipBook8 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-166deg);
+		-ms-transform: rotateY(-166deg);
+		-o-transform: rotateY(-166deg);
+		transform: rotateY(-166deg);
+	}
+}
+
+/* Firefox */
+@-moz-keyframes flipBook8 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-166deg);
+		-ms-transform: rotateY(-166deg);
+		-o-transform: rotateY(-166deg);
+		transform: rotateY(-166deg);
+	}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes flipBook8 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-166deg);
+		-ms-transform: rotateY(-166deg);
+		-o-transform: rotateY(-166deg);
+		transform: rotateY(-166deg);
+	}
+}
+
+/* Opera */
+@-o-keyframes flipBook8 {
+	0% {
+		-webkit-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+	50% {
+		-webkit-transform: rotateY(-120deg);
+		-ms-transform: rotateY(-120deg);
+		-o-transform: rotateY(-120deg);
+		transform: rotateY(-120deg);
+	}
+	100% {
+		-webkit-transform: rotateY(-166deg);
+		-ms-transform: rotateY(-166deg);
+		-o-transform: rotateY(-166deg);
+		transform: rotateY(-166deg);
+	}
+}
+
+/*******************************flipBook8**********************************************************/
+
+
+
+/*书的封面*/
+.book-page-1 .page-front {
+	background-color: #F40057;
+}
+.book-page-1 .page-back {
+	background-color: #fff;
+}
+.book-page-1 .page-front p {
+	font-size: 80px;
+	color: #fff;
+	margin-top: 100px;
+}
+.flip-animation-1 {
+	animation: flipBook1 23s 0s;
+	-moz-animation: flipBook1 23s 0s; /* Firefox */
+	-webkit-animation: flipBook1 23s 0s; /* Safari and Chrome */
+	-o-animation: flipBook1 23s 0s; /* Opera */
+}
+
+/*书的第二页*/
+.book-page-2 .page-back, .book-page-2 .page-front {
+	background-color: #fff;
+}
+.book-page-2 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-2 {
+	animation: flipBook2 15s 4s  ;
+	-moz-animation: flipBook2 15s 4s  ; /* Firefox */
+	-webkit-animation: flipBook2 15s 4s  ; /* Safari and Chrome */
+	-o-animation: flipBook2 15s 4s  ; /* Opera */
+}
+
+/*书的第三页*/
+.book-page-3 .page-back, .book-page-3 .page-front {
+	background-color: #fff;
+}
+.book-page-3 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-3 {
+	animation: flipBook3 15s 7s  ;
+	-moz-animation: flipBook3 15s 7s  ; /* Firefox */
+	-webkit-animation: flipBook3 15s 7s  ; /* Safari and Chrome */
+	-o-animation: flipBook3 15s 7s  ; /* Opera */
+}
+
+/*书的第四页*/
+.book-page-4 .page-back, .book-page-4 .page-front {
+	background-color: #fff;
+}
+.book-page-4 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-4 {
+	animation: flipBook4 15s 10s  ;
+	-moz-animation: flipBook4 15s 10s  ; /* Firefox */
+	-webkit-animation: flipBook4 15s 10s  ; /* Safari and Chrome */
+	-o-animation: flipBook4 15s 10s  ; /* Opera */
+}
+
+/*书的第五页*/
+.book-page-5 .page-back, .book-page-5 .page-front {
+	background-color: #fff;
+}
+.book-page-5 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-5 {
+	animation: flipBook5 15s 13s  ;
+	-moz-animation: flipBook5 15s 13s  ; /* Firefox */
+	-webkit-animation: flipBook5 15s 13s  ; /* Safari and Chrome */
+	-o-animation: flipBook5 15s 13s  ; /* Opera */
+}
+
+/*书的第六页*/
+.book-page-6 .page-back, .book-page-6 .page-front {
+	background-color: #fff;
+}
+.book-page-6 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-6 {
+	animation: flipBook6 15s 16s  ;
+	-moz-animation: flipBook6 15s 16s  ; /* Firefox */
+	-webkit-animation: flipBook6 15s 16s  ; /* Safari and Chrome */
+	-o-animation: flipBook6 15s 16s  ; /* Opera */
+}
+
+/*书的第七页*/
+.book-page-7 .page-back, .book-page-7 .page-front {
+	background-color: #fff;
+}
+.book-page-7 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-7 {
+	animation: flipBook7 15s 19s  ;
+	-moz-animation: flipBook7 15s 19s  ; /* Firefox */
+	-webkit-animation: flipBook7 15s 19s  ; /* Safari and Chrome */
+	-o-animation: flipBook7 15s 19s  ; /* Opera */
+}
+
+/*书的第八页*/
+.book-page-8 .page-back, .book-page-8 .page-front {
+	background-color: #fff;
+}
+.book-page-8 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-8 {
+	animation: flipBook8 15s 22s  ;
+	-moz-animation: flipBook8 15s 22s  ; /* Firefox */
+	-webkit-animation: flipBook8 15s 22s  ; /* Safari and Chrome */
+	-o-animation: flipBook8 15s 22s  ; /* Opera */
+}
+
+/*书的第九页*/
+.book-page-9 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}

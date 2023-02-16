@@ -1,0 +1,105 @@
+﻿/**Sweet Alert Icon */
+const SweetalertPopupTypes = Object.freeze({
+    /**
+     * 成功
+     * @type {string}
+     */
+    success: "success",
+
+    /**
+     * 錯誤
+     * @type {string}
+     */
+    error: "error",
+
+    /**
+     * 警告
+     * @type {string}
+     */
+    warning: "warning",
+
+    /**
+     * 訊息
+     * @type {string}
+     */
+    info: "info",
+
+    /**
+     * 問題
+     * @type {string}
+     */
+    question: "question"
+});
+
+/**
+ * 使用Sweetalert2顯示訊息
+ * @param {string} Icon icon (可使用SweetalertPopupTypes設值)
+ * @param {string} Title 標題
+ * @param {string} Html Html內容
+ * @param {number} Timer 時間
+ * @param {string} PageURL 導向URL(=null則不轉頁)
+ * @param {boolean} IsSubWin 是否為子頁面
+ * @param {boolean} isCloseFancybox 是否關閉fancybox(true:是/false:否)
+ * @param {boolean} ShowConfirmButton 是否顯示"確認"按鈕
+ */
+function ShowSweetAlert(Icon, Title, Html, Timer, PageURL, IsSubWin, isCloseFancybox, ShowConfirmButton) {
+    Swal.fire({
+        type: Icon,
+        title: Title,
+        html: Html,
+        timer: Timer,
+        showConfirmButton: ShowConfirmButton,
+        onClose: function (modal) {
+            if (IsSubWin) {
+                if (!IsNullOrEmpty(PageURL)) {
+                    parent.location.replace(PageURL);
+                }
+                if (isCloseFancybox) {
+                    closeFancyBox();
+                }
+            }
+            else {
+                if (!IsNullOrEmpty(PageURL)) {
+                    window.location.replace(PageURL);
+                }
+            }
+        }
+    });
+}
+
+/**
+ * 使用Sweetalert2顯示必填訊息
+ * @param {object} arr
+ */
+function ShowRequireAlert(arr) {
+    var str = "";
+    for (var i in arr) {
+        str += '<span class="orange" style="margin:5px;display:inline-block;">&nbsp;<span style="color:black;">' + arr[i] + '</span></span>'
+    }
+
+    // sweetalert
+    Swal.fire({
+        title: '<h1 style="color:#FF8300;">' + '尚未填寫' + '</h1>',
+        html: '<div style="padding: 5px;">' + str + '</div>',
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+            '<i class="fa fa-check"></i>' + '確認',
+    })
+}
+
+/**
+ * 檢查值是否為空值
+ * @param {any} value 型別為數值或字串的值
+ */
+function IsNullOrEmpty(value) {
+    if (value == undefined || value == null) {
+        return true;
+    }
+    else if (value.toString().trim() == '') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

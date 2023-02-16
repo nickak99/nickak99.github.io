@@ -1,0 +1,13 @@
+$(document).ready(function () {
+    $('.hamberger').click(function () {
+        //避免 a 標籤會觸發
+        event.preventDefault();
+        //觸發展開收起來
+        $('#nav_list').toggleClass('show');
+    })
+    $('#nav_list li a').click(function () {
+        //event.preventDefault();
+        //移除class，才會讓 menu 消失
+        $('#nav_list').removeClass('show');
+    })
+});

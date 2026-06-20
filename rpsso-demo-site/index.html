@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>非官方示範頁｜輻射防護雲化服務系統</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="page-shell" aria-label="非官方訓練示範頁">
+      <div class="demo-ribbon">非官方示範頁｜不連線、不驗證、不保存帳密</div>
+
+      <header class="hero-header">
+        <div class="seal" aria-hidden="true">
+          <div class="seal-ring">
+            <span>DEMO</span>
+            <i></i>
+          </div>
+        </div>
+        <div class="brand-copy">
+          <p class="agency-line">Nuclear Safety Training Demo</p>
+          <h1>輻射防護雲化服務系統</h1>
+        </div>
+        <div class="header-lines" aria-hidden="true"></div>
+      </header>
+
+      <section class="content-band">
+        <div class="wave-field" aria-hidden="true"></div>
+
+        <section class="info-panel" aria-labelledby="notice-title">
+          <nav class="tabs" aria-label="內容分頁">
+            <button type="button">相關功能</button>
+            <button type="button">最新消息</button>
+            <button type="button" class="active" id="notice-title">管制公告</button>
+            <button type="button">操作指南</button>
+          </nav>
+
+          <div class="notice-window">
+            <article class="headline-box">
+              <a href="#" aria-label="示範公告標題">「出國維修、展示後，再復運回國」作業方式說明</a>
+              <p>
+                1.「外貨維修復運進口」案：（1）出口時，請依規定向本會申請
+                「貨品出口同意書」，並於海關出口報單填具「簽審核准文號」，
+                依海關作業規定辦理通關。 ...
+              </p>
+            </article>
+
+            <ul class="notice-list" aria-label="公告清單">
+              <li>
+                <span class="file-icon" aria-hidden="true"></span>
+                <strong>20180101</strong>
+                <span>「出國維修、展示後，再復運回國」作業方式說明</span>
+              </li>
+              <li>
+                <span class="file-icon" aria-hidden="true"></span>
+                <strong>20150901</strong>
+                <span>緊急事件通報表</span>
+              </li>
+              <li>
+                <span class="file-icon" aria-hidden="true"></span>
+                <strong>20140608</strong>
+                <span>配合聯合國地方代碼修正，進出口簽審系統相關欄位同步調整</span>
+              </li>
+              <li>
+                <span class="file-icon" aria-hidden="true"></span>
+                <strong>20131215</strong>
+                <span>雲化服務系統維護作業通知</span>
+              </li>
+              <li>
+                <span class="file-icon" aria-hidden="true"></span>
+                <strong>20121009</strong>
+                <span>申辦資料格式及附件上傳說明</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="login-card" aria-labelledby="login-title">
+          <div class="login-tab" id="login-title">Login</div>
+          <p class="login-warning">非官方訓練展示，請勿輸入真實帳號、密碼或憑證。</p>
+
+          <form id="demo-form" autocomplete="off">
+            <fieldset class="account-type">
+              <legend class="sr-only">登入身分</legend>
+              <label><input type="radio" checked> 業者帳號</label>
+              <label><input type="radio"> 業者憑證</label>
+              <label><input type="radio"> 個人帳號</label>
+            </fieldset>
+
+            <div class="form-grid">
+              <label for="user-id">用戶帳號</label>
+              <span>：</span>
+              <input id="user-id" type="text" placeholder="DEMO-ONLY">
+
+              <label for="password">用戶密碼</label>
+              <span>：</span>
+              <input id="password" type="password" placeholder="請勿輸入真實密碼">
+
+              <label for="dept">部門代碼</label>
+              <span>：</span>
+              <div class="inline-field">
+                <input id="dept" type="text" maxlength="8">
+                <small>無設定勿填</small>
+              </div>
+
+              <label for="captcha">驗證碼</label>
+              <span>：</span>
+              <div class="captcha-row">
+                <input id="captcha" type="text" inputmode="numeric" maxlength="4">
+                <output id="captcha-code" aria-label="示範驗證碼">7782</output>
+                <button class="refresh" type="button" aria-label="更新示範驗證碼">↻</button>
+              </div>
+            </div>
+
+            <div class="quick-links" aria-label="示範連結">
+              <a href="#" data-demo-link><span class="icon mail"></span>客服信箱</a>
+              <a href="#" data-demo-link><span class="icon help"></span>忘記密碼</a>
+              <a href="#" data-demo-link><span class="icon phone"></span>諮詢電話</a>
+              <a href="#" data-demo-link><span class="icon group"></span>交流平台</a>
+            </div>
+
+            <div class="actions">
+              <button type="submit">登入</button>
+              <button type="reset">重填</button>
+            </div>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
